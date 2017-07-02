@@ -23,12 +23,13 @@ El argumento `-n` es la cantidad de trabajadores maximo.
 Este ejemplo manda un gran numero de peticiones al servidor, los cuales son encoladas y ejecutadas cuando los trabajadores terminan su trabajo anterior.
 
 ```
+localhost:8000/work
 ```
 
 Con json
 
 ```json
 {
-	"code": "var a=5; for(i=0;i<500000000;i++) a++; console.log(a);"
+  "code": "var a=5; for(i=0;i<500000000;i++) a++; console.log(a);"
 }
 ```
