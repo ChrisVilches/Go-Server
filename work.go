@@ -17,17 +17,17 @@ func (w workRequest) String() string {
 func (w workRequest) execute() {
 
   var (
-		cmdOut []byte
-		err    error
-	)
+    cmdOut []byte
+    err    error
+  )
 
   cmdOut, err = exec.Command("node", "-e", w.code).Output()
 
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "There was an error running a bash command: ", err)
-		os.Exit(1)
-	}
-	out := string(cmdOut)
-	fmt.Println(out)
+  if err != nil {
+    fmt.Fprintln(os.Stderr, "There was an error running a bash command: ", err)
+    os.Exit(1)
+  }
+  out := string(cmdOut)
+  fmt.Println(out)
 
 }
