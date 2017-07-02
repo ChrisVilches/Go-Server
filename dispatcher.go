@@ -1,7 +1,14 @@
 package main
 
-import "net/http"
-import "github.com/fatih/color"
+import (
+  "net/http"
+  "github.com/fatih/color"
+  "encoding/json"
+)
+
+type jsonData struct {
+    Code string
+}
 
 
 func dispatch(work workRequest){
@@ -18,7 +25,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
     return
   }
 
-  code := r.FormValue("code")
+  decoder := json.NewDecoder(r.Body)
+  var t jsonData
+  err := decoder.Decode(&t)
+  if err != nil {
+    panic(err)
+  }
+  defer r.Body.Close()
+
+  code := t.Code
 
   if len(code) < 1 {
     color.Red("Bad request: No code attribute")
