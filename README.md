@@ -26,7 +26,7 @@ Este ejemplo manda un gran numero de peticiones al servidor, los cuales son enco
 localhost:8000/work
 ```
 
-Con json
+Con JSON
 
 ```json
 {
