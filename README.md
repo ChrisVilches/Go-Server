@@ -14,7 +14,7 @@ go build -o server *.go
 
 El argumento `-n` es la cantidad de trabajadores maximo.
 
-```
+```bash
 ./server -n 3
 ```
 
